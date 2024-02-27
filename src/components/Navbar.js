@@ -6,7 +6,7 @@ export default function Navbar() {
     <div>
       <nav
         class="navbar navbar-expand-lg navbar-light"
-        style={{ "background-color": "#ccd5ae" }}
+        style={{ "background-color": "#E8AC41" }}
       >
         <div class="container-fluid">
           <Link class="navbar-brand fs-1 fst-italic" to="/">
@@ -26,7 +26,7 @@ export default function Navbar() {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
+                <Link class="nav-link" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
