@@ -1,0 +1,412 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-color: #D4A373 !important;
+  border: 0px !important;
+}
+
+header {
+  background-color: #CCD5AE;
+  color: #FEFAE0;
+}
+
+.venue-container {
+  margin: 0 auto;
+}
+
+.venue-name {
+  font-weight: bold;
+}
+
+.venue-info {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.venue-actions {
+  margin-top: 5px;
+}
+
+.package-container {
+  margin: 0 auto;
+}
+
+.package-name {
+  font-weight: bold;
+}
+
+.package-price {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.package-actions {
+  margin-top: 5px;
+}
+
+.user-container {
+  margin: 0 auto;
+}
+
+.user-username {
+  font-weight: bold;
+}
+
+.user-email {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.user-actions {
+  margin-top: 5px;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.navbar{
+  background-color: #CCD5AE;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.event-list {
+  padding: 20px;
+}
+
+.event {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.event img {
+  width: 400px;
+  margin-right: 20px;
+  height: auto;
+  float: right;
+  margin-left: 10px;
+}
+
+.event div {
+  flex: 1;
+}
+
+.event h2 {
+  margin: 0 0 10px;
+}
+
+.event p {
+  margin: 0 0 10px;
+}
+
+.event button {
+  cursor: pointer;
+}
+
+/* Base styles */
+.contact-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contact-section h1 {
+  color: #333;
+}
+
+.contact-section p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2,
+.contact-form h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2962ff;
+}
+
+
+.login-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #f5f5f5; 
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-text {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.btn-submit {
+  background-color: #007bff; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color: #007bff;
+}
+@media only screen and (max-width: 768px) {
+  .contact-details {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 70%;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .contact-details {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 70%;
+  }
+}
+
+ 
+.logo{
+  width: 180px;
+}
+
+nav{
+  height: 90px;
+}
+
+
+.signup-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; 
+}
+
+.signup-container {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.btn-success {
+  background-color: #28a745; 
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545; 
+  color: white;
+  margin-top: 10px; 
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
