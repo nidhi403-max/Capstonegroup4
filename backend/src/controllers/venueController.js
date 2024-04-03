@@ -1,5 +1,7 @@
 const Venue = require("../models/Venue");
 
+
+// Getting all venues
 const getAllVenues = async (req, res) => {
   try {
     const venues = await Venue.find();
@@ -9,6 +11,7 @@ const getAllVenues = async (req, res) => {
   }
 };
 
+// Creating a new venue
 const createVenue = async (req, res) => {
   const venue = new Venue(req.body);
   try {
@@ -19,6 +22,7 @@ const createVenue = async (req, res) => {
   }
 };
 
+// Updating an existing venue
 const updateVenue = async (req, res) => {
   const { id } = req.params;
 
@@ -37,6 +41,7 @@ const updateVenue = async (req, res) => {
   }
 };
 
+// Deleting an existing venue
 const deleteVenue = async (req, res) => {
   const { id } = req.params;
 
