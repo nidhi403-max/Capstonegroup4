@@ -137,6 +137,13 @@ header {
   float: right;
   margin-left: 10px;
 }
+.event-images img{
+  width: 400px;
+  margin-right: 20px;
+  height: auto;
+  float: right;
+  margin-left: 10px;
+}
 
 .event div {
   flex: 1;
