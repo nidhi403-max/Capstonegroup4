@@ -6,7 +6,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+header{
+  background-color: white !important;
+}
+header a{
 
+color: black !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -37,25 +43,40 @@
   }
 }
 
-
-
-/* Event CSS*/
-
-
-.event-page-container{
+/*Resource :freepik.com/free-photo/birthday-gift-with-decorative-elements_4212481.htm#page=7&query=1st%20birthday%20background&position=6&from_view=keyword&track=ais&uuid=183f8934-240a-49ce-99b8-20af8d221e6b*/
+.event-page-container {
   background-image: url('../public/formbackground.jpg'); 
   background-size: cover;
   background-position: center;
+  padding: 20px;
 }
+
 .event-form-container {
   max-width: 600px;
   margin: auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background: white;
-  margin-top: 50px;
- 
+  background-color: white;
+  
 }
+
+.event-form-container form{
+  transition: box-shadow 0.3s ease;
+}
+
+
+.event-form-container input[type="text"],
+.event-form-container input[type="email"],
+.event-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #85b0b1;
+  border-radius: 4px;
+}
+
+
+
 
 .event-form-container h2 {
   text-align: center;
@@ -87,7 +108,6 @@
 
 button {
   display: block;
-  width: 100%;
   padding: 10px;
   background-color: #28a745;
   color: white;
@@ -100,32 +120,110 @@ button:hover {
   background-color: #218838;
 }
 
-
-/* Booking page */ 
-
-.bookingsContainer {
-  padding: 20px;
+.event-description{
+  width: 40% !important;
+  float: right;
 }
 
-.bookingsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+
+@media (max-width: 768px) {
+  .event-description, .event-images img {
+    width: 100% !important; 
+    float: none; 
+    height: auto; 
+  }
 }
 
-.bookingCard {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+.booking-card {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
-.bookingCard p {
-  margin: 10px 0;
+.booking-card h3 {
+  color: #333;
+  margin-bottom: 15px;
 }
 
-.loading, .error {
+.booking-card p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.booking-card button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.booking-card button:hover {
+  background-color: #0056b3;
+}
+
+
+.accordion {
+  width: 78%;
+  display: grid;
+  align-items: center;
+  margin: auto;
+  justify-items: center; 
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.accordion li {
+  max-width: 350px;
+  max-height: 300px;
+  list-style: none;
   text-align: center;
-  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content{
+  visibility: hidden;
+  position: absolute;
+}
+
+
+
+.accordion li img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: all .3s;
+}
+
+.accordion li img:hover{
+  transform: scale(1.1);
+  filter: blur(5px) brightness(50%);
+}
+
+.accordion li:hover .content{
+  visibility: visible;
+}
+
+
+.accordion h2 {
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 45px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.carousel{
+  margin-top: 100px;
 }
