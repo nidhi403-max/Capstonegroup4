@@ -1,0 +1,103 @@
+:root {
+  --color-limed-spruce:  #CCD5AE;
+  --color-spicy-pink: #7c676d;
+  --color-salt-box: #D4A373;
+  --color-granny-smith: #7d9e9d;
+  --color-santa-fe: #ae6b5a;
+  --color-dark-bunker: #101115;
+  --color-bright-gray: #383c4a;
+  --color-warm-grey: #f5f5f5;
+
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.cdnfonts.com/css/sofia-sans');
+@import url('https://fonts.cdnfonts.com/css/noto-serif-kannada');
+@import url('https://fonts.cdnfonts.com/css/kalnia');
+
+body {
+  background: var(--color-warm-grey);
+  background: linear-gradient(0deg, var(--color-salt-box) 75%, var(--color-limed-spruce) 100%);
+}
+
+.event-list {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.event:hover {
+  transform: scale(1.02);
+}
+
+
+.eventDesc {
+  padding: 15px;
+}
+
+.eventDesc h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.eventDesc p {
+  margin: 10px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .event {
+    flex-direction: column;
+  }
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.event-header{
+  display: flex;
+  justify-content: space-between;
+}

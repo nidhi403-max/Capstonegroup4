@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+//Sending an email using EmailJS API
 const sendEmail = async (req, res) => {
   try {
     const emailParams = req.body;
