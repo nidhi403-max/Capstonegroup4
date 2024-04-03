@@ -1,28 +1,58 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { Box, Link, Typography, Container } from "@mui/material";
 
 export default function Footer() {
   return (
-    <footer className="py-3 my-4">
-      <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-        <li className="nav-item">
-          <Link to="/" aria-current="page" className="nav-link px-2 text-muted">
+    <Box
+      component="footer"
+      sx={{
+        py: 3,
+        my: 4,
+        borderColor: 'grey.200', 
+        backgroundColor: 'none !important', 
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            paddingBottom: 3,
+            marginBottom: 3,
+          }}
+        >
+          <Link
+            component={RouterLink}
+            to="/"
+            aria-current="page"
+            sx={{ px: 2, color: 'text.secondary', textDecoration: 'none' }}
+          >
             Home
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/" className="nav-link px-2 text-muted">
+          <Link
+            component={RouterLink}
+            to="/events"
+            sx={{ px: 2, color: 'text.secondary', textDecoration: 'none' }}
+          >
             Events
           </Link>
-        </li>
-      
-        <li className="nav-item">
-          <Link to="/login" className="nav-link px-2 text-muted">
+          <Link
+            component={RouterLink}
+            to="/contact"
+            sx={{ px: 2, color: 'text.secondary', textDecoration: 'none' }}
+          >
             Contact Us
           </Link>
-        </li>
-      </ul>
-      <p className="text-center text-muted">© 2024 EventXo</p>
-    </footer>
+        </Box>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          align="center"
+        >
+          © 2024 EventXo
+        </Typography>
+      </Container>
+    </Box>
   );
 }

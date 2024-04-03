@@ -1,7 +1,7 @@
-//config
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAn1VbLnDmhFpM7Ehpv-Cge4PPy6JPDbmo",
     authDomain: "eventxo-78aca.firebaseapp.com",

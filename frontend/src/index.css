@@ -1,10 +1,9 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+ 
 }
 
 code {
@@ -13,7 +12,7 @@ code {
 }
 
 button {
-  background-color: #D4A373 !important;
+  background-color: #D4A373;
   border: 0px !important;
 }
 
@@ -73,7 +72,7 @@ header {
 }
 
 .user-actions {
-  margin-top: 5px;
+  display: flex;
 }
 .App {
   text-align: center;
@@ -117,126 +116,85 @@ header {
   }
 }
 
-
-.event-list {
-  padding: 20px;
-}
-
-.event {
-  border: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.event img {
-  width: 400px;
-  margin-right: 20px;
-  height: auto;
-  float: right;
-  margin-left: 10px;
-}
-.event-images img{
-  width: 400px;
-  margin-right: 20px;
-  height: auto;
-  float: right;
-  margin-left: 10px;
-}
-
-.event div {
-  flex: 1;
-}
-
-.event h2 {
-  margin: 0 0 10px;
-}
-
-.event p {
-  margin: 0 0 10px;
-}
-
-.event button {
-  cursor: pointer;
-}
-
-/* Base styles */
 .contact-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 80%;
+  margin: 25px auto 0px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
 }
 
-.contact-section {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.contact-section h1 {
+.contact-section h1, .contact-section h2 {
   color: #333;
-}
-
-.contact-section p {
-  color: #666;
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .contact-details {
   display: flex;
-  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 30px;
-}
-
-.contact-info,
-.contact-form {
-  flex: 1;
-  margin-bottom: 20px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
 }
 
-.contact-info h2,
-.contact-form h2 {
-  color: #333;
-  margin-bottom: 15px;
+.contact-info, .contact-form {
+  flex: 1;
 }
 
-.contact-info p {
-  color: #666;
-  margin-bottom: 10px;
+.contact-info p, .contact
+-form p {
+color: #666;
+line-height: 1.5;
 }
 
-.contact-form form {
+.form-label {
+display: block;
+margin-top: 20px;
+color: #333;
+font-weight: bold;
+}
+
+.form-control {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+textarea.form-control {
+height: auto;
+}
+
+button.btn {
+padding: 10px 20px;
+margin-top: 20px;
+background-color: rgba(222, 60, 57, 0.72);
+color: white;
+border: none;
+margin: auto;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+button.btn:hover {
+background-color: #218838;
+}
+
+@media (max-width: 768px) {
+.contact-details {
+flex-direction: column;
+}
+.contact-section {
   display: flex;
   flex-direction: column;
 }
 
-.contact-form label {
-  margin-bottom: 5px;
-  color: #333;
+.contact-info, .contact-form {
+margin-bottom: 20px;
 }
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact-form button {
-  padding: 10px;
-  background-color: #4285f4;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background-color: #2962ff;
 }
 
 
@@ -249,10 +207,8 @@ header {
 }
 
 .login-container {
-  background: white;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
 }
@@ -354,10 +310,8 @@ nav{
 }
 
 .signup-container {
-  background: white;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
 }
@@ -394,9 +348,8 @@ nav{
   border-radius: 4px;
   cursor: pointer;
   display: block;
-  width: 100%;
   font-size: 16px;
-  margin-top: 20px;
+  
 }
 
 .btn-success {
@@ -416,4 +369,98 @@ nav{
 
 .btn-danger:hover {
   background-color: #c82333;
+}
+
+.btn-custom-primary {
+  width: auto;
+  background: #e08b3bd6 !important;
+}
+
+.container, .package-container, .user-container {
+  max-width: 95%;
+  margin: 0 auto; 
+}
+
+body {
+  font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+.contact-details, .contact-info, .contact-form, .event, .auth-form, .form-group {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-info, .contact-form, .event img, .auth-form, .form-group {
+  flex: 1 1 100%; 
+}
+
+@media only screen and (max-width: 768px) {
+  .event {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event img {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .eventDesc{
+    border-left: none;
+  }
+
+  .contact-details, .contact-info, .contact-form {
+    flex-direction: column;
+  }
+
+  .contact-info, .contact-form {
+    width: 100%; 
+  }
+
+  .login-container, .signup-container {
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .navbar, header, .App-header {
+    flex-direction: column;
+  }
+  
+  .logo, nav {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .App-logo {
+    width: 50vmin; 
+  }
+  
+  .btn, .btn-success, .btn-danger, .btn-submit {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+body p {
+  
+  font-weight: none !important;
+}
+
+body h2,h1,h3,a {
+  font-family: sans-serif !important;
+  font-weight: bold !important;
+}
+.alert-success{
+  color: #28a745;
+}
+
+.alert-danger{
+  color: red;
 }

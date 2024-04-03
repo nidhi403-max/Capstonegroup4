@@ -11,6 +11,7 @@ const getAllUsers = async (req, res) => {
     }
 };
 
+// Create a new user
 const createUser = async (req, res) => {
     const user = new User(req.body);
     try {
@@ -21,6 +22,7 @@ const createUser = async (req, res) => {
     }
 };
 
+// Updating an existing user
 const updateUser = async (req, res) => {
     const { id } = req.params;
 
@@ -37,7 +39,7 @@ const updateUser = async (req, res) => {
     }
 };
 
-
+// Deleting an existing user
 const deleteUser = async (req, res) => {
     const { id } = req.params;
 
@@ -54,6 +56,7 @@ const deleteUser = async (req, res) => {
     }
 };
 
+// User signup
 const signup = async(req,res)=>{
     const { username, email, password } = req.body;
   
@@ -77,6 +80,7 @@ const signup = async(req,res)=>{
     }
 }
 
+// User login
 const login = async(req,res)=>{
     const { email, password } = req.body;
 
@@ -94,7 +98,7 @@ const login = async(req,res)=>{
 
     req.session.userId = user._id;
 
-    res.json({ success: true, msg: 'User logged in successfully', user: { id: user._id, username: user.username, email: user.email } });
+    res.json({ success: true, msg: 'User logged in successfully', user: { id: user._id, username: user.username, email: user.email,isAdmin:user?.isAdmin } });
   } catch (err) {
     console.error(err.message);
     res.status(500).json({ success: false, msg: 'Server error' });

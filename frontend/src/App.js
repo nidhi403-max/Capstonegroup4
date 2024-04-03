@@ -7,21 +7,24 @@ import Admin from './screens/Admin';
 import Events from './screens/Events';
 import Contact from './screens/contact';
 import EventForm from './screens/EventForm';
+import MyBookings from './screens/MyBookings';
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext'; 
-import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+//Defining different routes
 function App() {
   return (
     <Router>
       <AuthProvider> 
         <div>
           <Routes>
+
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/events" element={<Events/>}/>
             <Route exact path="/contact" element={<Contact/>}/>
+            <Route exact path='/myBooking' element={<MyBookings/>}/>
             <Route exact path="/eventform" element={<EventForm/>}/>
             <Route exact path="/bookevent/:id" element={<EventForm/>}/>
             <Route exact path="/login" element={<Login/>}/>
