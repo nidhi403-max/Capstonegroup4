@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api';
-//import './PackageContainer.css'; // Import custom CSS file for additional styling
+
 
 function PackageContainer() {
     const [packages, setPackages] = useState([]);
@@ -19,7 +19,7 @@ function PackageContainer() {
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
+    // Adding a new package
     const handleAddPackage = () => {
         api.post('/packages', formData)
             .then(response => {
@@ -29,6 +29,7 @@ function PackageContainer() {
             .catch(error => console.error('Error adding package:', error));
     };
 
+    // Updating an existing package
     const handleUpdatePackage = () => {
         if (selectedPackageId) {
             api.put(`/packages/${selectedPackageId}`, formData)
@@ -44,6 +45,7 @@ function PackageContainer() {
         }
     };
 
+    // Deleting a package
     const handleDeletePackage = (packageId) => {
         api.delete(`/packages/${packageId}`)
             .then(() => {
@@ -55,6 +57,7 @@ function PackageContainer() {
             .catch(error => console.error('Error deleting package:', error));
     };
 
+    // Editing a package
     const handleEditPackage = (packageItem) => {
         setFormData({
             name: packageItem.name,

@@ -34,6 +34,29 @@ const bookingSchema = new mongoose.Schema({
   },
 
   totalPrice: Number,
+  status: {
+    type: String,
+    enum: ['Open', 'Review', 'Approved', 'Booked', 'Cancelled'],
+    default: 'Open'
+  },
+  comment:{
+    type:String,
+    require:false
+  },
+  paymentId:{
+    type:String,
+    require:false,
+  },
+  pdfUrl:{
+    type:String,
+    require:false,
+    default:"",
+  },
+  isEmailSend:{
+    type:Boolean,
+    require:false,
+    default:false,
+  }
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);

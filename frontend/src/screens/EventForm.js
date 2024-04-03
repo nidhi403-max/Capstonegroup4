@@ -30,8 +30,31 @@ export default function EventForm() {
     Suite: false,
     Hotel: false,
   });
-  var Filter = require('bad-words'),
-  filter = new Filter({ list: ['bad', 'word'] });
+  const [errors, setErrors] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    eventDate: "",
+  });
+  const { venueId } = useParams();
+  const [message, setMessage] = useState({ type: '', content: '' }); // New state for messages
+
+
+  // Filter for bad words
+  var Filter = require("bad-words"),
+    filter = new Filter({ list: ["bad", "word"] });
+  const getTodayDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; 
+    let dd = today.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+
+    return `${yyyy}-${mm}-${dd}`;
+  };
 
   React.useEffect(() => {
     if (!user) {
@@ -42,18 +65,30 @@ export default function EventForm() {
     setUserId(user.id);
   }, [id]);
 
+  // Fetching venues from the backend
   const fetchVenues = async () => {
     try {
       const response = await axios.get("http://localhost:4000/venues/");
-      setVenues(response.data);
-      if (response.data.length > 0) {
-        setSelectedVenue(response.data[0]._id);
+      const venuesData = response.data;
+  
+      let venueIdToSelect = venueId;
+  
+      const openVenues = venuesData.filter(venue => venue.status === "Open");
+  
+      setVenues(openVenues);
+  
+      if (openVenues.length > 0) {
+        const selectedId = venueIdToSelect && openVenues.some(venue => venue._id === venueIdToSelect)
+          ? venueIdToSelect
+          : openVenues[0]._id;
+        setSelectedVenue(selectedId);
       }
     } catch (error) {
       console.error("Failed to fetch venues:", error);
     }
   };
-
+  
+  // Fetching events from the backend
   const fetchEvents = async () => {
     try {
       const response = await axios.get("http://localhost:4000/events/");
@@ -95,6 +130,7 @@ export default function EventForm() {
     setTotalPrice(basePrice + calculateDecorationPrice(newPackage));
   };
 
+  // Calculating decoration price 
   const calculateDecorationPrice = (packageSelected) => {
     switch (packageSelected) {
       case "Premium":
@@ -114,6 +150,7 @@ export default function EventForm() {
     calculateTotalPrice(basePrice, decorationPackage, newAccommodations);
   };
 
+  // Calculating accomodation price 
   const calculateAccommodationPrice = (accommodations) => {
     let price = 0;
     if (accommodations.Villa) price += 5000;
@@ -130,12 +167,55 @@ export default function EventForm() {
     const accommodationPrice = calculateAccommodationPrice(accommodations);
     setTotalPrice(basePrice + decorationPrice + accommodationPrice);
   };
+  // Validation for form fields
+  const validateForm = () => {
+    let newErrors = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      eventDate: "",
+    };
+    let isValid = true;
+
+    if (!firstname) {
+      newErrors.firstname = "First name is required";
+      isValid = false;
+    }
+
+    if (!lastname) {
+      newErrors.lastname = "Last name is required";
+      isValid = false;
+    }
+
+    if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+      newErrors.email = "Email is not valid";
+      isValid = false;
+    }
+
+    if (!phone.match(/^\d{10}$/)) {
+      newErrors.phone = "Phone number is not valid";
+      isValid = false;
+    }
+
+  
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      console.log("Validation failed");
+      setMessage({ type: 'error', content: 'Validation failed. Please check your input.' });
+      return;
+    }
+    setMessage({ type: '', content: '' });
 
     var request = filter.clean(specialRequests);
     console.log(request);
+
     const selectedAccommodations = Object.entries(accommodations)
       .filter(([key, value]) => value)
       .map(([key]) => key);
@@ -150,26 +230,50 @@ export default function EventForm() {
       phone,
       eventDate,
       decorationPackage,
-      specialRequests:request,
+      specialRequests: request,
       totalPrice,
       accommodations: selectedAccommodations,
     };
 
     try {
       await axios.post("http://localhost:4000/booking/bookevent", bookingData);
-      alert("Booking submitted successfully");
-      navigate("/");
+      setMessage({ type: 'success', content: 'Booking submitted successfully' });
+      setTimeout(() => setMessage({ type: '', content: '' }), 5000); 
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setPhone("");
+      setEventDate("");
+      setDecorationPackage("Silver"); 
+      setSpecialRequests("");
+      setTotalPrice(0);
+      setAccommodations({
+        Villa: false,
+        Suite: false,
+        Hotel: false,
+      });
+
+      setTimeout(() => {
+        setMessage({ type: '', content: '' });
+      }, 5000); 
+
     } catch (error) {
       console.error("Failed to submit booking:", error);
-      alert("Failed to submit booking");
+      setMessage({ type: 'error', content: 'Failed to submit booking. Please try again later.' });
+      setTimeout(() => setMessage({ type: '', content: '' }), 5000); 
     }
   };
   return (
     <>
-      <Navbar />
+  <Navbar />
       <div className="event-page-container">
         <div className="event-form-container">
           <h2>Book Your Event</h2>
+          {message.content && (
+            <div  className={`alert ${message.type === 'success' ? 'alert-success' : 'alert-danger'}`}>
+              <h1>{message.content}</h1>
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="event-dropdown">Select Event:</label>
@@ -192,7 +296,9 @@ export default function EventForm() {
                 id="firstname"
                 value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
+                required
               />
+              {errors.firstname && <p className="error">{errors.firstname}</p>}
             </div>
             <div className="form-group">
               <label htmlFor="lastname">Last Name:</label>
@@ -201,7 +307,9 @@ export default function EventForm() {
                 id="lastname"
                 value={lastname}
                 onChange={(e) => setLastname(e.target.value)}
+                required
               />
+              {errors.lastname && <p className="error">{errors.lastname}</p>}
             </div>
 
             <div className="form-group">
@@ -211,7 +319,9 @@ export default function EventForm() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
+              {errors.email && <p className="error">{errors.email}</p>}
             </div>
 
             <div className="form-group">
@@ -221,7 +331,9 @@ export default function EventForm() {
                 id="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                required
               />
+              {errors.phone && <p className="error">{errors.phone}</p>}
             </div>
 
             <div className="form-group">
@@ -231,23 +343,32 @@ export default function EventForm() {
                 id="eventDate"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
+                min={getTodayDate()}
                 required
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="venue-dropdown">Select Venue:</label>
-              <select
-                id="venue-dropdown"
-                value={selectedVenue}
-                onChange={(e) => setSelectedVenue(e.target.value)}
-              >
-                {venues.map((venue) => (
-                  <option key={venue._id} value={venue._id}>
-                    {venue.name} - {venue.location} (Capacity: {venue.capacity})
-                  </option>
-                ))}
-              </select>
+              {venues.filter((venue) => venue.status !== "Booked").length >
+              0 ? (
+                <select
+                  id="venue-dropdown"
+                  value={selectedVenue}
+                  onChange={(e) => setSelectedVenue(e.target.value)}
+                >
+                  {venues
+                    .filter((venue) => venue.status !== "Booked")
+                    .map((venue) => (
+                      <option key={venue._id} value={venue._id}>
+                        {venue.name} - {venue.location} (Capacity:{" "}
+                        {venue.capacity})
+                      </option>
+                    ))}
+                </select>
+              ) : (
+                <p>No venues left, please contact us.</p>
+              )}
             </div>
 
             <div className="form-group">
@@ -271,6 +392,7 @@ export default function EventForm() {
                   name="Villa"
                   checked={accommodations.Villa}
                   onChange={handleAccommodationChange}
+                  
                 />
                 <label htmlFor="villa">Villa ($5,000)</label>
               </div>
@@ -281,6 +403,7 @@ export default function EventForm() {
                   name="Suite"
                   checked={accommodations.Suite}
                   onChange={handleAccommodationChange}
+                  
                 />
                 <label htmlFor="suite">Suite ($4,500)</label>
               </div>
@@ -291,6 +414,7 @@ export default function EventForm() {
                   name="Hotel"
                   checked={accommodations.Hotel}
                   onChange={handleAccommodationChange}
+                  
                 />
                 <label htmlFor="hotel">Hotel ($3,000)</label>
               </div>
@@ -301,6 +425,7 @@ export default function EventForm() {
                 placeholder="Special Requests"
                 value={specialRequests}
                 onChange={(e) => setSpecialRequests(e.target.value)}
+                required
               />
             </div>
 
@@ -310,7 +435,7 @@ export default function EventForm() {
               </p>
             </div>
             <button type="submit">Submit Booking</button>
-          </form>
+            </form>
         </div>
       </div>
       <Footer />

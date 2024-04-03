@@ -1,5 +1,6 @@
 const Package = require('../models/Package');
 
+// Getting all packages
 const getAllPackages = async (req, res) => {
     try {
         const packages = await Package.find();
@@ -9,6 +10,7 @@ const getAllPackages = async (req, res) => {
     }
 };
 
+// Creating new packages
 const createPackage = async (req, res) => {
     const package = new Package(req.body);
     try {
@@ -19,6 +21,7 @@ const createPackage = async (req, res) => {
     }
 };
 
+// Updating existing packages
 const updatePackage = async (req, res) => {
     const { id } = req.params;
 
@@ -34,7 +37,7 @@ const updatePackage = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
+// Deleting existing packages
 const deletePackage = async (req, res) => {
     const { id } = req.params;
 
