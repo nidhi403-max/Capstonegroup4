@@ -233,7 +233,7 @@ const getEventById = async (req, res) => {
           const emailResult = await sendEmail(emailParams);
           if (emailResult.success) {
             console.log('Email sent successfully:', emailResult.data);
-            await Booking.findByIdAndUpdate(booking._id, { $set: { isEmailSend: true } }, { new: true });
+            await Booking.findByIdAndUpdate(booking._id, { $set: { isEmailSend: true ,pdfUrl:pdfUrl} }, { new: true });
           } else {
             console.error('Failed to send email:', emailResult.error);
           }
