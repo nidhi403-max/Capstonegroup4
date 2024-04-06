@@ -24,6 +24,17 @@ async function generatePDF(booking) {
   const pdfPath = path.join(__dirname, `${booking.booking._id}.pdf`);
   const stream = fs.createWriteStream(pdfPath);
   doc.pipe(stream);
+   
+  const imagePath = path.join(__dirname, 'EventXo.png');
+  doc.image(imagePath, 50, 50, { 
+    width: 100,
+  });
+  
+  doc.moveDown(2);
+  doc.fontSize(20).text('EventXO Booking Confirmation', { align: 'center' });
+
+
+  doc.moveDown(2); 
 
   // Title
   doc.fontSize(20).text('EventXO Booking Confirmation', { align: 'center' });
