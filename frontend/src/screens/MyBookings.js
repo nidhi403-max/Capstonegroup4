@@ -31,7 +31,7 @@ export default function Event() {
     setError("");
 
     try {
-      const response = await fetch(`${BASE_URL}booking/${user.id}`);
+      const response = await fetch(`${BASE_URL}/booking/${user.id}`);
       if (!response.ok) {
         throw new Error("Failed to fetch bookings");
       }
