@@ -37,8 +37,7 @@ async function generatePDF(booking) {
   doc.moveDown(2); 
 
   // Title
-  doc.fontSize(20).text('EventXO Booking Confirmation', { align: 'center' });
-  doc.moveDown();
+  doc.fontSize(15).text('', { align: 'center' });
 
   // Introduction
   doc.fontSize(14).text(`Dear ${booking.user.username},`, { align: 'left' });
