@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 function BookingList() {
   const [bookings, setBookings] = useState([]);
@@ -9,7 +10,7 @@ function BookingList() {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch('http://localhost:4000/booking/');
+        const response = await fetch(`${BASE_URL}/booking/`);
         if (!response.ok) {
           throw new Error('Failed to fetch bookings');
         }
@@ -29,7 +30,7 @@ function BookingList() {
  // Handling status change for a booking through function
   const handleStatusChange = async (bookingId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:4000/booking/updateStatus/${bookingId}`, {
+      const response = await fetch(`${BASE_URL}/booking/updateStatus/${bookingId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
