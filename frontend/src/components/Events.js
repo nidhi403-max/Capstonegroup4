@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import "../screens/events.css";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 function EventContainer() {
   const [events, setEvents] = useState([]);
@@ -28,7 +29,7 @@ function EventContainer() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:4000/events");
+      const response = await fetch(`${BASE_URL}/events`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
