@@ -68,7 +68,7 @@ export default function Event() {
       };
 
       const response = await fetch(
-        `${BASE_URL}booking/create-payment-intent`,
+        `${BASE_URL}/booking/create-payment-intent`,
         {
           method: "POST",
           headers: {
