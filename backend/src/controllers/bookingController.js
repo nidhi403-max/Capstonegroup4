@@ -297,8 +297,8 @@ const makePayment = async (req, res) => {
       quantity: 1,
     }],
     mode: 'payment',
-    success_url: 'http://localhost:3000/',
-    cancel_url: 'https://yourdomain.com/cancel',
+    success_url: 'https://frontend-main.d1drrs3qeupzia.amplifyapp.com/',
+    cancel_url: 'https://frontend-main.d1drrs3qeupzia.amplifyapp.com/',
     metadata: {
       eventName: eventName,
       decorationPackage: decorationPackage,
