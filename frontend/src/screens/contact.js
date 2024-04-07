@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 export default function Contact() {
   const { user } = useAuth();
@@ -25,7 +26,7 @@ export default function Contact() {
     e.preventDefault();
 
     // Sending email data to backend
-    const response = await fetch("http://localhost:4000/email/sendemail", {
+    const response = await fetch(`${BASE_URL}/email/sendemail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
