@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
+
 export default function EventForm() {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -68,7 +70,7 @@ export default function EventForm() {
   // Fetching venues from the backend
   const fetchVenues = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/venues/");
+      const response = await axios.get(`${BASE_URL}/venues/`);
       const venuesData = response.data;
   
       let venueIdToSelect = venueId;
@@ -91,7 +93,7 @@ export default function EventForm() {
   // Fetching events from the backend
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/events/");
+      const response = await axios.get(`${BASE_URL}/events/`);
       setEvents(response.data);
       if (response.data.length > 0) {
         const eventToSelect =
@@ -236,7 +238,7 @@ export default function EventForm() {
     };
 
     try {
-      await axios.post("http://localhost:4000/booking/bookevent", bookingData);
+      await axios.post(`${BASE_URL}/booking/bookevent`, bookingData);
       setMessage({ type: 'success', content: 'Booking submitted successfully' });
       setTimeout(() => setMessage({ type: '', content: '' }), 5000); 
       setFirstname("");

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { storage } from '../context/firebaseConfig';
 import "./events.css"
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 export default function Event() {
   const { user } = useAuth();
@@ -24,7 +25,7 @@ export default function Event() {
   const fetchEvents = async () => {
     setIsLoading(true); 
     try {
-      const response = await fetch('http://localhost:4000/events/');
+      const response = await fetch(`${BASE_URL}/events/`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

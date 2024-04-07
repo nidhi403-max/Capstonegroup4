@@ -3,9 +3,10 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
 import "./Login.css";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 const loginUser = async (credentials) => {
-  const response = await fetch("http://localhost:4000/users/login", {
+  const response = await fetch(`${BASE_URL}/users/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),

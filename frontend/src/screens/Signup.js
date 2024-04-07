@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./signup.css";
 import { colors } from "@mui/material";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 const createUser = async (credentials) => {
-  const response = await fetch("http://localhost:4000/users/signup", {
+  const response = await fetch(`${BASE_URL}/users/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),

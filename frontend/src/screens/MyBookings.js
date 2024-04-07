@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = 'https://capstonegroup4.onrender.com';
 
 const stripePromise = loadStripe(
   "pk_test_51OnawZDcbKyFGB2GkDiDHbAABf3MnTu76AMGsue4sw5o7ewbW9YTq0ArbhJmTQaznAUU2bCZTrmbS98ZKrwAi8y600ABbouZro"
@@ -30,7 +31,7 @@ export default function Event() {
     setError("");
 
     try {
-      const response = await fetch(`http://localhost:4000/booking/${user.id}`);
+      const response = await fetch(`${BASE_URL}booking/${user.id}`);
       if (!response.ok) {
         throw new Error("Failed to fetch bookings");
       }
@@ -67,7 +68,7 @@ export default function Event() {
       };
 
       const response = await fetch(
-        "http://localhost:4000/booking/create-payment-intent",
+        `${BASE_URL}booking/create-payment-intent`,
         {
           method: "POST",
           headers: {
