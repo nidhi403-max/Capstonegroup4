@@ -19,11 +19,11 @@ const accordionData = [
   //Resource:https://www.pexels.com/photo/photo-of-a-baby-playing-with-a-birthday-cake-16322562/
   { id: 6, name: "Emma's First Birthday", role: "Designer", imgSrc: "./images/birthday.jpg" },
   //Resource:https://unsplash.com/photos/people-sitting-on-chair-ohNCIiKVT1g
-  { id: 7, name: "Executive Forum Gathering", role: "Designer", imgSrc: "./images/Corporate1.jpg" },
+  { id: 7, name: "Executive Forum Gathering", role: "Designer", imgSrc: "./images/corporate1.jpg" },
   //Resource:https://unsplash.com/photos/audience-in-a-conference-EVgsAbL51Rk
-  { id: 8, name: "Innovation Exchange", role: "Designer", imgSrc: "./images/Corporate.jpg" },
+  { id: 8, name: "Innovation Exchange", role: "Designer", imgSrc: "./images/corporate.jpg" },
   //Resource:https://unsplash.com/photos/five-person-standing-while-talking-each-other-ZDN-G1xBWHY
-  { id: 9, name: "NexusConnect", role: "Designer", imgSrc: "./images/Corporate2.jpg" },
+  { id: 9, name: "NexusConnect", role: "Designer", imgSrc: "./images/corporate2.jpg" },
 
 ];
 
