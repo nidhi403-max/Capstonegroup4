@@ -7,11 +7,11 @@ import "./home.css"
 
 const accordionData = [
   //Resource:https://unsplash.com/photos/man-in-gray-suit-and-woman-in-white-wedding-dress-1Bs2sZ9fD2Q
-  { id: 1, name: "Sarah & Michael", role: "Frontend", imgSrc: "./images/Wedding1.jpg" },
+  { id: 1, name: "Sarah & Michael", role: "Frontend", imgSrc: "./images/wedding1.jpg" },
   //Resource:https://unsplash.com/photos/bride-and-groom-standing-beside-brown-wooden-wall-JFAPl7brL6U
-  { id: 2, name: "Ava & Ethan", role: "Backend", imgSrc: "./images/Wedding2.jpg" },
+  { id: 2, name: "Ava & Ethan", role: "Backend", imgSrc: "./images/wedding2.jpg" },
   //Resource:https://unsplash.com/photos/photo-of-a-man-and-woman-newly-wedding-holding-a-balloons-mW8IZdX7n8E
-  { id: 3, name: "Emily & Danie", role: "Backend", imgSrc: "./images/Wedding3.jpg" },
+  { id: 3, name: "Emily & Danie", role: "Backend", imgSrc: "./images/wedding3.jpg" },
   //Resource:https://unsplash.com/photos/selective-focus-photography-of-cake-L88iz147ZFY
   { id: 4, name: "Happy John's Birthday", role: "Backend", imgSrc: "./images/birthday3.jpg" },
   //Resource:https://unsplash.com/photos/toddler-looking-up-while-holding-candycane-in-party-UFdLg0BX5aM
