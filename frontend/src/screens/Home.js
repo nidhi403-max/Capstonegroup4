@@ -6,24 +6,24 @@ import { useNavigate } from "react-router-dom";
 import "./home.css"
 
 const accordionData = [
-  //Resource:https://pixabay.com/photos/wedding-couple-marriage-1836315/
-  { id: 1, name: "Sarah & Michael", role: "Frontend", imgSrc: "./images/WeddingEvent2.jpeg" },
-  //Resource:https://pixabay.com/photos/marriage-couple-wedding-love-4226896/
-  { id: 2, name: "Ava & Ethan", role: "Backend", imgSrc: "./images/WeddingEvent3.jpeg" },
+  //Resource:https://unsplash.com/photos/man-in-gray-suit-and-woman-in-white-wedding-dress-1Bs2sZ9fD2Q
+  { id: 1, name: "Sarah & Michael", role: "Frontend", imgSrc: "./images/Wedding1.jpg" },
+  //Resource:https://unsplash.com/photos/bride-and-groom-standing-beside-brown-wooden-wall-JFAPl7brL6U
+  { id: 2, name: "Ava & Ethan", role: "Backend", imgSrc: "./images/Wedding2.jpg" },
   //Resource:https://unsplash.com/photos/photo-of-a-man-and-woman-newly-wedding-holding-a-balloons-mW8IZdX7n8E
-  { id: 3, name: "Emily & Danie", role: "Backend", imgSrc: "./images/WeddingEvent6.avif" },
-  //Resource:pixabay.com/photos/child-smile-baby-first-birthday-5111077/
-  { id: 4, name: "Happy Lily's Birthday", role: "Backend", imgSrc: "./images/Birthday5.jpeg" },
-  //Resource:https://pixabay.com/photos/birthday-party-family-celebration-7361026/
-  { id: 5, name: "Cute Amelia's Birthday", role: "Designer", imgSrc: "./images/birthday-party4.jpeg" },
+  { id: 3, name: "Emily & Danie", role: "Backend", imgSrc: "./images/Wedding3.jpg" },
+  //Resource:https://unsplash.com/photos/selective-focus-photography-of-cake-L88iz147ZFY
+  { id: 4, name: "Happy John's Birthday", role: "Backend", imgSrc: "./images/birthday3.jpg" },
+  //Resource:https://unsplash.com/photos/toddler-looking-up-while-holding-candycane-in-party-UFdLg0BX5aM
+  { id: 5, name: "Cute Amelia's Birthday", role: "Designer", imgSrc: "./images/birthday2.jpg" },
   //Resource:https://www.pexels.com/photo/photo-of-a-baby-playing-with-a-birthday-cake-16322562/
   { id: 6, name: "Emma's First Birthday", role: "Designer", imgSrc: "./images/birthday.jpg" },
-  //Resource:https://unsplash.com/photos/audience-in-a-conference-EVgsAbL51Rk/
-  { id: 7, name: "Executive Forum Gathering", role: "Designer", imgSrc: "./images/Corporate1.avif" },
-  //Resource:https://unsplash.com/photos/people-gathering-inside-the-building-BdV23FLkmxQ/
-  { id: 8, name: "Innovation Exchange", role: "Designer", imgSrc: "./images/Corporate2.avif" },
-  //Resource:https://unsplash.com/photos/unknown-persons-sitting-indoors-wn7dOzUh3Rs
-  { id: 9, name: "NexusConnect", role: "Designer", imgSrc: "./images/Corporate3.avif" },
+  //Resource:https://unsplash.com/photos/people-sitting-on-chair-ohNCIiKVT1g
+  { id: 7, name: "Executive Forum Gathering", role: "Designer", imgSrc: "./images/Corporate1.jpg" },
+  //Resource:https://unsplash.com/photos/audience-in-a-conference-EVgsAbL51Rk
+  { id: 8, name: "Innovation Exchange", role: "Designer", imgSrc: "./images/Corporate.jpg" },
+  //Resource:https://unsplash.com/photos/five-person-standing-while-talking-each-other-ZDN-G1xBWHY
+  { id: 9, name: "NexusConnect", role: "Designer", imgSrc: "./images/Corporate2.jpg" },
 
 ];
 
